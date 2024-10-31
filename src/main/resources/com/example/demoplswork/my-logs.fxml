@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.StackPane?>
+
+<?import javafx.scene.control.ScrollPane?>
+<VBox alignment="TOP_CENTER" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demoplswork.controller.LogsView">
+
+   <!-- Navigation Bar -->
+   <HBox spacing="10" alignment="CENTER" prefWidth="1440" prefHeight="108" style="-fx-background-color: #FFD643;">
+      <effect>
+         <DropShadow radius="10" color="rgba(0, 0, 0, 0.5)" />
+      </effect>
+
+      <!-- Logo aligned to the left -->
+      <ImageView fitHeight="108.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/logo.jpg" />
+         </image>
+      </ImageView>
+
+      <!-- Spacer to push buttons to the center -->
+      <Region HBox.hgrow="ALWAYS" />
+
+      <!-- Navigation Buttons in the center -->
+      <HBox spacing="30" alignment="CENTER">
+         <Button text="Home" prefWidth="100" prefHeight="40" style="-fx-background-color: #ffffff;" onAction="#goToHome" />
+         <Button text="My Logs" prefWidth="100" prefHeight="40" style="-fx-background-color: #ffffff;" />
+         <Button text="Explore" prefWidth="100" prefHeight="40" style="-fx-background-color: #ffffff;" onAction="#goToExplore" />
+         <Button fx:id="accountButton" style="-fx-background-color: transparent; -fx-border-color: transparent;" onAction="#showAccountMenu">
+            <graphic>
+               <ImageView fitHeight="50.0" fitWidth="50.0">
+                  <image>
+                     <Image url="@../../../images/account_circle.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+         <HBox.margin>
+            <Insets right="80" />
+         </HBox.margin>
+      </HBox>
+   </HBox>
+
+   <!-- Content below the navigation bar with padding -->
+   <ScrollPane fitToWidth="true" >
+      <VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-background-color: #FFFFFF;">
+         <!-- Adding padding to the rest of the content -->
+         <padding>
+            <Insets top="20" right="200" bottom="20" left="200" />
+         </padding>
+
+         <!-- Page Title -->
+         <Label text="My Logs" style="-fx-font-size: 22px; -fx-font-family: 'Roboto'; -fx-font-weight: bold;" />
+
+         <!-- Create Log Button aligned to the right -->
+         <HBox alignment="CENTER">
+            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="120.0" style="-fx-background-color: #32cd32; -fx-text-fill: white;" text="Create New Log" onAction="#handleAddNewProject"/>
+         </HBox>
+
+         <!-- Logs Section in GridPane -->
+         <GridPane fx:id="projectsGrid" hgap="40" vgap="40" alignment="CENTER">
+            <!-- Project modules will be added dynamically here in the controller -->
+         </GridPane>
+
+      </VBox>
+   </ScrollPane>
+</VBox>

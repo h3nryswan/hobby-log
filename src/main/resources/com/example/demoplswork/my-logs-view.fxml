@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.effect.DropShadow?>
+
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ListView?>
+<VBox alignment="TOP_CENTER" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demoplswork.controller.LogsUpdateView">
+
+    <!-- Navigation Bar -->
+    <HBox spacing="10" alignment="CENTER" prefWidth="1440" prefHeight="108" style="-fx-background-color: #FFD643;">
+        <effect>
+            <DropShadow color="rgba(0, 0, 0, 0.5)" />
+        </effect>
+
+        <!-- Logo aligned to the left -->
+        <ImageView fitHeight="108.0" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/logo.jpg" />
+            </image>
+        </ImageView>
+
+        <!-- Spacer to push buttons to the center -->
+        <Region HBox.hgrow="ALWAYS" />
+
+        <!-- Navigation Buttons in the center -->
+        <HBox spacing="30" alignment="CENTER">
+            <Button text="Home" prefWidth="100" prefHeight="40" style="-fx-background-color: #ffffff;" onAction="#goToHome" />
+            <Button text="My Logs" prefWidth="100" prefHeight="40" style="-fx-background-color: #ffffff;" onAction="#goToLogs"/>
+            <Button text="Explore" prefWidth="100" prefHeight="40" style="-fx-background-color: #ffffff;" onAction="#goToExplore" />
+            <Button fx:id="accountButton" style="-fx-background-color: transparent; -fx-border-color: transparent;" onAction="#showAccountMenu">
+                <graphic>
+                    <ImageView fitHeight="50.0" fitWidth="50.0">
+                        <image>
+                            <Image url="@../../../images/account_circle.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <HBox.margin>
+                <Insets right="80" />
+            </HBox.margin>
+        </HBox>
+    </HBox>
+
+    <!-- Content below the navigation bar with padding -->
+    <ScrollPane fitToWidth="true">
+        <VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-background-color: #FFFFFF;">
+            <!-- Adding padding to the rest of the content -->
+            <padding>
+                <Insets top="20" right="200" bottom="20" left="200" />
+            </padding>
+
+            <!-- Page Title -->
+            <Label fx:id="logTitleLabel" style="-fx-font-size: 22px; -fx-font-family: 'Roboto'; -fx-font-weight: bold;" />
+
+            <Label text="Progress:" style="-fx-font-size: 12px;" />
+            <HBox alignment="CENTER">
+                <ProgressBar fx:id="progressBar" prefWidth="900.0" prefHeight="20.0" />
+            </HBox>
+
+            <!-- Two Columns-->
+            <HBox spacing="150" alignment="TOP_CENTER">
+
+                <!-- Left Column: To-Do List -->
+                <VBox spacing="15">
+                    <Label text="To-Do List" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                    <VBox fx:id="toDoListVBox" spacing="15">
+
+                    </VBox>
+                    <Button fx:id="addToDoButton" text="Add To-Do Item" style="-fx-background-color: #FFD643;" prefWidth="200" onAction="#handleAddToDo" />
+                </VBox>
+
+                <!-- Right Column: Media Slideshow -->
+                <VBox fx:id="mediaContainer" spacing="15" alignment="CENTER">
+                    <Label text="Media Slideshow" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                    <!-- Placeholder for Media -->
+                    <ImageView fx:id="mediaImageView" fitWidth="300" fitHeight="200" preserveRatio="true" />
+                    <HBox spacing="20" alignment="CENTER">
+                        <Button fx:id="backButton" text="Previous" onAction="#handleBack" disable="true" />
+                        <Button fx:id="nextButton" text="Next" onAction="#handleNext" disable="true" />
+                    </HBox>
+                    <Button fx:id="addMediaButton" text="Add Media" style="-fx-background-color: #FFD643;" prefWidth="200" onAction="#handleAddImages"/>
+                </VBox>
+            </HBox>
+
+            <!-- Materials List Section -->
+            <VBox spacing="15" alignment="CENTER">
+                <Label text="Materials List" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                <TableView fx:id="materialsTable" prefHeight="200" prefWidth="600">
+                    <columns>
+                        <TableColumn fx:id="materialNameCol" text="Material Name" prefWidth="200" />
+                        <TableColumn fx:id="quantityCol" text="QTY" prefWidth="100" />
+                        <TableColumn fx:id="priceCol" text="Price (each)" prefWidth="100" />
+                    </columns>
+                </TableView>
+                <Button fx:id="addMaterialButton" text="Add Material" style="-fx-background-color: #FFD643;" prefWidth="200" onAction="#handleAddMaterial"/>
+                <HBox alignment="CENTER_RIGHT">
+                    <Label fx:id="totalCostLabel" text="Total Cost: $0.00" />
+                </HBox>
+            </VBox>
+            <VBox fx:id="logEventsBox" >
+
+                <!-- Other UI elements (like buttons, labels, etc.) -->
+
+                <!-- This VBox will hold the ListView or custom log event entries -->
+                <ListView fx:id="logEventsListView" prefHeight="400" prefWidth="600">
+                    <!-- The LogEventCell objects will be dynamically added here -->
+                </ListView>
+
+            </VBox>
+        </VBox>
+    </ScrollPane>
+</VBox>

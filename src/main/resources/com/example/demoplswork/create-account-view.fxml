@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<!--<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #FFD643;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoplswork.controller.LoginController">
+   <children>
+      <VBox alignment="CENTER" layoutX="200.0" layoutY="150.0" style="-fx-background-color: #FFD643;" AnchorPane.leftAnchor="277.0" AnchorPane.rightAnchor="266.20000000000005">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/account_circle.png" />
+               </image>
+            </ImageView>
+            <GridPane alignment="CENTER" hgap="10" style="-fx-background-color: #FFD643;" vgap="10">
+
+                &lt;!&ndash; Title &ndash;&gt;
+                <Label style="-fx-font-size: 24px;" text="Create Account" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+
+                &lt;!&ndash; First Name Subtitle &ndash;&gt;
+                <Label text="First Name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+                &lt;!&ndash; First Name Field &ndash;&gt;
+                <TextField fx:id="firstNameField" promptText="Enter your first name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                &lt;!&ndash; Last Name Subtitle &ndash;&gt;
+                <Label text="Last Name" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+
+                &lt;!&ndash; Last Name Field &ndash;&gt;
+                <TextField fx:id="lastNameField" promptText="Enter your last name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                &lt;!&ndash; Email Subtitle &ndash;&gt;
+                <Label text="Email" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+
+                &lt;!&ndash; Email Field &ndash;&gt;
+                <TextField fx:id="emailField" promptText="Enter your email" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                &lt;!&ndash; Password Subtitle &ndash;&gt;
+                <Label text="Password" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+
+                &lt;!&ndash; Password Field &ndash;&gt;
+                <PasswordField fx:id="passwordField" promptText="Enter your password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                &lt;!&ndash; Submit Button &ndash;&gt;
+                <Button fx:id="createAccountSubmitButton" onAction="#onCreateAccountSubmit" text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                &lt;!&ndash; Cancel Button &ndash;&gt;
+                <Button fx:id="createAccountCancelButton" onAction="#onCancelCreateAccount" text="Cancel" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+
+            
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>-->
+
+<VBox fx:id="rootVBox"  alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoplswork.controller.LoginController"
+      style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #FFD643, #FFE572); -fx-padding: 100;">
+    <children>
+        <!-- Larger Logo Outside the White Box -->
+        <ImageView fitWidth="300.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.0, 0, 5);">
+            <image>
+                <Image url="@../../../images/logo.jpg" />
+            </image>
+        </ImageView>
+
+        <!-- Form Container (Same Width as Logo) -->
+        <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #FFFFFF; -fx-padding: 45; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.0, 0, 5); -fx-pref-width: 400; -fx-min-width: 400; -fx-max-width: 400;">
+
+            <!-- Title for the Register page -->
+            <Label text="Register" style="-fx-font-size: 20px; -fx-text-fill: #333;" />
+
+            <!-- Form for register -->
+            <TextField fx:id="firstNameField" onAction="#onCreateAccountSubmit" promptText="First Name" style="-fx-background-color: #f2f2f2; -fx-padding: 15; -fx-border-radius: 5; -fx-border-color: #ddd; -fx-font-size: 14px; -fx-pref-width: 350; -fx-max-width: 350; -fx-min-width: 350;"/>
+            <TextField fx:id="lastNameField" onAction="#onCreateAccountSubmit" promptText="Last Name" style="-fx-background-color: #f2f2f2; -fx-padding: 15; -fx-border-radius: 5; -fx-border-color: #ddd; -fx-font-size: 14px; -fx-pref-width: 350; -fx-max-width: 350; -fx-min-width: 350;"/>
+            <TextField fx:id="emailField" onAction="#onCreateAccountSubmit" promptText="Email" style="-fx-background-color: #f2f2f2; -fx-padding: 15; -fx-border-radius: 5; -fx-border-color: #ddd; -fx-font-size: 14px; -fx-pref-width: 350; -fx-max-width: 350; -fx-min-width: 350;"/>
+            <PasswordField fx:id="passwordField" onAction="#onCreateAccountSubmit" promptText="Password" style="-fx-background-color: #f2f2f2; -fx-padding: 15; -fx-border-radius: 5; -fx-border-color: #ddd; -fx-font-size: 14px; -fx-pref-width: 350; -fx-max-width: 350; -fx-min-width: 350;"/>
+            <Button fx:id="registerButton" text="Create Account" onAction="#onCreateAccountSubmit" style="-fx-background-color: #FFD643; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 15; -fx-pref-width: 350; -fx-max-width: 350; -fx-min-width: 350;"/>
+
+            <Label text="Already have an account?" style="-fx-text-fill: #b3b3b3; -fx-font-size: 12px;"/>
+            <Hyperlink fx:id="loginLink" text="Sign in" onAction="#onCancelCreateAccount" style="-fx-text-fill: #FFD643; -fx-underline: true;"/>
+        </VBox>
+    </children>
+</VBox>

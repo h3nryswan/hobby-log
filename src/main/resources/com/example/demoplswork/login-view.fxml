@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Hyperlink?>
+<VBox fx:id="rootVBox"  alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoplswork.controller.LoginController"
+      style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #FFD643, #FFE572); -fx-padding: 100;">
+    <children>
+        <!-- Larger Logo Outside the White Box -->
+        <ImageView fitWidth="300.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.0, 0, 5);">
+            <image>
+                <Image url="@../../../images/logo.jpg" />
+            </image>
+        </ImageView>
+
+        <!-- Form Container (Same Width as Logo) -->
+        <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #FFFFFF; -fx-padding: 45; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.0, 0, 5); -fx-pref-width: 400; -fx-min-width: 400; -fx-max-width: 400;">
+
+            <!-- Title for the Login page -->
+            <Label text="Login" style="-fx-font-size: 20px; -fx-text-fill: #333;" />
+
+            <!-- Form for login -->
+            <TextField fx:id="emailField" onAction="#onLogin" promptText="Email" style="-fx-background-color: #f2f2f2; -fx-padding: 15; -fx-border-radius: 5; -fx-border-color: #ddd; -fx-font-size: 14px; -fx-pref-width: 350; -fx-max-width: 350; -fx-min-width: 350;"/>
+            <PasswordField fx:id="passwordField" onAction="#onLogin" promptText="Password" style="-fx-background-color: #f2f2f2; -fx-padding: 15; -fx-border-radius: 5; -fx-border-color: #ddd; -fx-font-size: 14px; -fx-pref-width: 350; -fx-max-width: 350; -fx-min-width: 350;"/>
+            <Button fx:id="loginButton" text="Login" onAction="#onLogin" style="-fx-background-color: #FFD643; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 15; -fx-pref-width: 350; -fx-max-width: 350; -fx-min-width: 350;"/>
+
+            <Label text="Not registered?" style="-fx-text-fill: #b3b3b3; -fx-font-size: 12px;"/>
+            <Hyperlink text="Create an account" onAction="#onCreateAccount" style="-fx-text-fill: #FFD643; -fx-underline: true;"/>
+        </VBox>
+    </children>
+</VBox>
+
+
